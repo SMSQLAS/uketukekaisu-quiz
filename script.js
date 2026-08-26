@@ -144,10 +144,10 @@ async function submitResult(event) {
   const payload = {
     quizTitle: "受付回数",
     timestamp: new Date().toLocaleString("ja-JP"),
-    store: document.getElementById("storeName").value.trim(),
+    storeName: document.getElementById("storeName").value.trim(),
     name: document.getElementById("playerName").value.trim(),
     difficulty: document.getElementById("difficulty").value,
-    score,
+    score: `${score}/${questions.length}`,
     total: questions.length,
     percent: Math.round((score / questions.length) * 100),
    answers: answerLog
