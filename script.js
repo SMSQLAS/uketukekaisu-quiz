@@ -154,7 +154,10 @@ async function submitResult(event) {
     score,
     total: questions.length,
     percent: Math.round((score / questions.length) * 100),
-    answers: JSON.stringify(answerLog)
+   answers: answerLog
+  .filter(item => item.result === "不正解")
+  .map(item => `問題${item.no}`)
+  .join("、") || "なし"
   };
 
   sendStatus.textContent = "送信中です...";
