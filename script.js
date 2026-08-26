@@ -107,11 +107,7 @@ function finishQuiz() {
   finishScreen.classList.remove("hidden");
   const percent = Math.round((score / questions.length) * 100);
   finalScore.textContent = `${questions.length}問中 ${score}問正解（${percent}%）`;
-  finalMessage.textContent = percent >= 80
-    ? "かなり良い感じです！"
-    : percent >= 60
-      ? "あと少しで安定しそうです。"
-      : "解説を確認して、受付回数の考え方を整理してみましょう。";
+finalMessage.textContent = "お疲れ様でした😊";
 }
 
 function handleAnswer(userAnswer) {
