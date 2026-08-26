@@ -146,6 +146,7 @@ async function submitResult(event) {
   }
 
   const payload = {
+    quizTitle: "受付回数",
     timestamp: new Date().toLocaleString("ja-JP"),
     store: document.getElementById("storeName").value.trim(),
     name: document.getElementById("playerName").value.trim(),
