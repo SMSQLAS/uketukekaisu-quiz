@@ -1,0 +1,123 @@
+:root {
+  --bg: #fff7f9;
+  --card: #ffffff;
+  --text: #2d2630;
+  --muted: #746a72;
+  --main: #d85a82;
+  --main-soft: #fdeaf0;
+  --ok: #22a06b;
+  --ng: #df4b5f;
+  --line: #f0dce3;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at top, #ffeaf1, var(--bg));
+  color: var(--text);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.app {
+  width: min(92vw, 760px);
+  margin: 28px auto;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: 0 18px 50px rgba(105, 50, 72, .12);
+}
+.hidden { display: none; }
+
+.badge {
+  display: inline-block;
+  margin: 0 0 12px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--main-soft);
+  color: var(--main);
+  font-weight: 800;
+}
+
+h1, h2 { margin: 0 0 16px; line-height: 1.45; }
+h1 { text-align: center; }
+h2 { font-size: 1.25rem; }
+
+.lead {
+  color: var(--muted);
+  line-height: 1.9;
+  text-align: left;
+}
+.note {
+  color: var(--muted);
+  font-size: .9rem;
+  line-height: 1.7;
+  background: #fffafb;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+button, input, select { font: inherit; }
+button {
+  border: 0;
+  border-radius: 14px;
+  padding: 14px 18px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.primary { background: var(--main); color: white; width: 100%; margin-top: 14px; }
+.secondary { background: #f4edf0; color: var(--text); width: 100%; margin-top: 12px; }
+.answer { color: white; min-height: 68px; font-size: 1.7rem; }
+.yes { background: var(--ok); }
+.no { background: var(--ng); }
+button:disabled { opacity: .55; cursor: not-allowed; }
+
+.result {
+  margin-top: 22px;
+  padding: 18px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: #fffafb;
+}
+#judge { font-weight: 900; font-size: 1.2rem; margin: 0 0 10px; }
+#explanation { margin: 0; color: var(--muted); line-height: 1.85; }
+.source { margin: 12px 0 0; font-size: .85rem; color: #a17e8b; }
+
+.submit-form { display: grid; gap: 16px; margin-top: 20px; }
+label { display: grid; gap: 8px; font-weight: 800; }
+input, select {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 13px;
+  background: white;
+}
+.send-status { color: var(--muted); min-height: 1.5em; }
+
+@media (max-width: 520px) {
+  .app { width: min(94vw, 760px); margin: 18px auto; }
+  .card { padding: 22px; }
+  .actions { grid-template-columns: 1fr 1fr; }
+  h1 { font-size: 1.65rem; }
+}

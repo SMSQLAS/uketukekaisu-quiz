@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>処方箋受付・調剤基本料 ○×クイズ</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="card" id="startScreen">
+      <p class="badge">保険調剤Q&amp;A Q005〜Q018</p>
+      <h1>処方箋受付・調剤基本料<br>○×クイズ</h1>
+      <p class="lead">
+        「保険調剤Q&amp;A」Q005〜Q018をもとに、実務で判断しやすい○×問題にしています。<br>
+        全14問です。問題を読んで○または×を選んでください。
+      </p>
+      <p class="note">※問題文・解説は、Q&amp;Aの内容をもとにクイズ用に言い換えています。</p>
+      <button class="primary" id="startBtn">開始する</button>
+    </section>
+
+    <section class="card hidden" id="quizScreen">
+      <div class="topbar">
+        <span id="progress">1 / 14</span>
+        <span id="score">正解 0</span>
+      </div>
+      <h2 id="questionText"></h2>
+      <div class="actions">
+        <button class="answer yes" data-answer="true">○</button>
+        <button class="answer no" data-answer="false">×</button>
+      </div>
+      <div class="result hidden" id="resultBox">
+        <p id="judge"></p>
+        <p id="explanation"></p>
+        <p class="source" id="sourceRef"></p>
+        <button class="primary" id="nextBtn">次の問題へ</button>
+      </div>
+    </section>
+
+    <section class="card hidden" id="finishScreen">
+      <p class="badge">結果</p>
+      <h2 id="finalScore"></h2>
+      <p id="finalMessage"></p>
+
+      <form id="submitForm" class="submit-form">
+        <label>
+          店舗名
+          <input id="storeName" name="store" type="text" placeholder="例：○○店" required />
+        </label>
+
+        <label>
+          名前
+          <input id="playerName" name="name" type="text" placeholder="例：山田" required />
+        </label>
+
+        <label>
+          難易度
+          <select id="difficulty" name="difficulty" required>
+            <option value="">選択してください</option>
+            <option value="難しい">難しい</option>
+            <option value="普通">普通</option>
+            <option value="簡単">簡単</option>
+          </select>
+        </label>
+
+        <button class="primary" type="submit">結果を送信する</button>
+      </form>
+
+      <p class="send-status" id="sendStatus"></p>
+      <button class="secondary hidden" id="retryBtn">もう一度する</button>
+    </section>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
