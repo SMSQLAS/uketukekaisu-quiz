@@ -193,7 +193,7 @@ document.getElementById("startBtn").addEventListener("click", () => {
 });
 
 document.querySelectorAll(".answer").forEach(btn => {
-  btn.addEventListener("click", () => handleAnswer(btn.dataset.answer === "true"));
+  btn.addEventListener("click", () => handleAnswer(btn.dataset.answer));
 });
 
 nextBtn.addEventListener("click", () => {
