@@ -141,9 +141,8 @@ correctAnswer: q.answer,
   explanation.innerHTML = q.explanation;
   resultBox.classList.remove("hidden");
   scoreEl.textContent = `正解 ${score}`;
-  document.querySelectorAll(".answer").forEach(btn => {
-  btn.addEventListener("click", () => handleAnswer(btn.dataset.answer));
-  nextBtn.textContent = current === questions.length - 1 ? "結果を見る" : "次の問題へ";
+  document.querySelectorAll(".answer").forEach(btn => btn.disabled = true);
+nextBtn.textContent = current === questions.length - 1 ? "結果を見る" : "次の問題へ";
 }
 
 async function submitResult(event) {
