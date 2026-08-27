@@ -102,6 +102,14 @@ function showQuestion() {
   progress.textContent = `${current + 1} / ${questions.length}`;
   scoreEl.textContent = `正解 ${score}`;
   questionText.textContent = q.text;
+  const choiceBtn1 = document.getElementById("choiceBtn1");
+const choiceBtn2 = document.getElementById("choiceBtn2");
+
+choiceBtn1.textContent = q.choices[0];
+choiceBtn2.textContent = q.choices[1];
+
+choiceBtn1.dataset.answer = q.choices[0];
+choiceBtn2.dataset.answer = q.choices[1];
   resultBox.classList.add("hidden");
 document.querySelectorAll(".answer").forEach(btn => btn.disabled = false);
 }
@@ -124,8 +132,8 @@ function handleAnswer(userAnswer) {
   answerLog.push({
     no: current + 1,
     question: q.text,
-    userAnswer: userAnswer ? "○" : "×",
-    correctAnswer: q.answer ? "○" : "×",
+userAnswer: userAnswer,
+correctAnswer: q.answer,
     result: correct ? "正解" : "不正解"
   });
 
@@ -133,7 +141,8 @@ function handleAnswer(userAnswer) {
   explanation.innerHTML = q.explanation;
   resultBox.classList.remove("hidden");
   scoreEl.textContent = `正解 ${score}`;
-  document.querySelectorAll(".answer").forEach(btn => btn.disabled = true);
+  document.querySelectorAll(".answer").forEach(btn => {
+  btn.addEventListener("click", () => handleAnswer(btn.dataset.answer));
   nextBtn.textContent = current === questions.length - 1 ? "結果を見る" : "次の問題へ";
 }
 
